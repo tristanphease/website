@@ -1,0 +1,30 @@
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#background_image {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+area:hover {
+    border: 1px solid red;
+}
+
+/* Solution for centreing the image from https://stackoverflow.com/a/3302072 */
+div.outer-image {
+    width: 100%; 
+    margin: 0 auto; 
+    overflow-x: hidden;
+}
+div.inner-image {
+    position:relative;
+    float: right;
+    right: 50%;
+}
+div.inner-image img {
+    position: relative; 
+    right:-50%;
+}

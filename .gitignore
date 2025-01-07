@@ -1,2 +1,4 @@
 # Backup blender files
 *.blend1
+# output of zola
+website/public
