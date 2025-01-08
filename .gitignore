@@ -1,4 +1,6 @@
 # Backup blender files
 *.blend1
+# Backup png file?
+*.png~
 # output of zola
 website/public
