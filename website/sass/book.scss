@@ -1,0 +1,50 @@
+
+#floating-text-content {
+    position: absolute;
+
+    left: calc(50vw - 400px);
+
+    top: 200px;
+
+    width: 750px;
+}
+
+.page-title {
+    position: relative;
+    text-align: center;
+    width: 45%;
+    
+    top: 30px;
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#page-title1 {
+    left: 0px;
+}
+
+.page-content {
+    position: relative;
+    left: 10px;
+    top: 0px;
+    width: 360px;
+    line-height: 35px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.page-content p {
+    margin-bottom: 33px;
+}
+
+.page-content-wrapper {
+    position: absolute;
+    left: 10px;
+    top: 80px;
+    width: 360px;
+}
+
+#page-content2 {
+    left: 400px;
+}
+

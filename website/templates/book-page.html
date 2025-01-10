@@ -1,13 +1,126 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <link href="/book.css" rel="stylesheet" /> 
+{% endblock head %}
+
 {% block content %}
-<h1 class="title">
-    {{ page.title }}
-</h1>
-<p class="page-1">
-</p>
-<p class="page-2">
+
+<div class="outer-image">
+    <div class="inner-image" id="inner-image">
+        <map name="image-map">
+            <area target="_self" alt="main page" title="main page" 
+                href="/" coords="528,108,629,53,629,82,718,82,718,130,631,132,631,162" shape="poly">
+        </map>
+        <img id="background_image" src="/book_bg.png" alt="Background image of a book" usemap="#image-map" />
+        
+    </div>
+</div>
+
+<div id="floating-text-content">
+    <div id="page-title1" class="page-title">
+        {{ page.title }}
+    </div>
+
+    <div class="page-content-wrapper">
+        <div class="page-content" id="page-content">
+            {{ page.content | safe }}
+        </div>
+
+        
+    </div>
     
-</p>
+    <div class="page-content-wrapper">
+        <div class="page-content" id="page-content2">
+
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="/area_highlight.js"></script>
+<script>
+"use strict";
+/// javascript code to handle special page rules on the book page
+
+function handlePageContent() {
+    
+    let sections = getSections();
+
+    let currentPage = 0;
+
+    setSections(sections, currentPage, pageNumber => currentPage = pageNumber);
+}
+
+function setSections(sections, pageNumber, setPageNumber) {
+    
+    if (sections.length <= pageNumber * 2) {
+        if (pageNumber === 0) {
+            return;
+        }
+        setPageNumber(pageNumber - 1);
+        setSections(pageNumber - 1);
+        return;
+    }
+
+    let sectionOneElem = document.getElementById("page-content");
+    clearSection(sectionOneElem);
+    let sectionTwoElem = document.getElementById("page-content2");
+    clearSection(sectionTwoElem);
+
+    let sectionOneNodes = sections[pageNumber * 2];
+    addNodesToSection(sectionOneNodes, sectionOneElem);
+
+    if (sections.length > pageNumber * 2 + 1) {
+        let sectionTwoNodes = sections[pageNumber * 2 + 1];
+        addNodesToSection(sectionTwoNodes, sectionTwoElem);
+    }
+    
+    // todo add buttons to change page
+}
+
+function clearSection(section) {
+    while (section.firstChild) {
+        section.removeChild(section.lastChild);
+    }
+}
+
+function addNodesToSection(nodes, sectionElem) {
+    for (let node of nodes) {
+        sectionElem.appendChild(node);
+    }
+}
+
+function getSections() {
+    let content = document.getElementById("page-content");
+
+    let sections = [];
+    let currentSection = [];
+
+    for (let node of content.childNodes) {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+            let tagName = node.tagName;
+
+            if (tagName.localeCompare("hr", 'en', { sensitivity: "base" }) === 0) {
+                sections.push(currentSection);
+                currentSection = [];
+            } else {
+                currentSection.push(node);
+            }
+        }
+    }
+    if (currentSection.length > 0) {
+        sections.push(currentSection);
+    }
+
+    return sections;
+}
+
+window.addEventListener("load", () => {
+    handlePageContent();
+});
+
+</script>
 
 {% endblock content %}
