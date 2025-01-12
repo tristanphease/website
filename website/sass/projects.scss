@@ -1,0 +1,110 @@
+
+body {
+    background-color: #3a3a3a;
+}
+
+#projects-wrapper {
+    position: relative;
+    top: 100px;
+    left: calc(50vw - 100px);
+}
+
+.projectDiv {
+    clip-path: ellipse(100px 75px);
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    background-color: #12006a6e;
+}
+
+.projectDiv > .projectTitleText {
+    color: orange;
+    font-size: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.projectDiv:hover {
+    background-color: #b709096e;
+}
+
+#project1 {
+    position: absolute;
+}
+
+#project2 {
+    position: absolute;
+    left: -150px;
+    top: 150px;
+}
+
+#project3 {
+    position: absolute;
+    left: 150px;
+    top: 150px;
+}
+
+#project4 {
+    position: absolute;
+    left: -150px;
+    top: 350px;
+}
+
+#project5 {
+    position: absolute;
+    left: 150px;
+    top: 350px;
+}
+
+.pagination {
+    position: absolute;
+    left: -50px;
+    top: 750px;
+}
+
+#previousButton {
+    position: relative;
+    left: 0px;
+}
+
+#nextButton {
+    position: relative;
+    left: 200px;
+}
+
+.paginationButton {
+    display: block;
+    width: 150px;
+    height: 50px;
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 10px inset black;
+    background-color: grey;
+    text-align: center;
+}
+
+.paginationButton:hover {
+    border: 10px inset grey;
+}
+
+.paginationButton > span {
+    color: black;
+    
+}
+
+#back-button {
+    margin: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    padding: 5px;
+    border: 5px solid black;
+
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: white;
+}

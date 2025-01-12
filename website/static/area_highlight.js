@@ -124,27 +124,51 @@ function setupAreaHighlight() {
 
 window.addEventListener("load", () => {
     setupAreaHighlight();
-    // logCoords();
+    logCoords(2);
 });
 
 /**
  * Logs coords to console for building the area maps
  */
-function logCoords() {
+function logCoords(mode = 1) {
     let image = document.getElementById("background_image");
 
-    image.addEventListener("mousedown", e => {
-        // middle mouse down
-        if (e.button === 1) {
-            let rect = image.getBoundingClientRect();
+    if (mode === 1) {
+        image.addEventListener("mousedown", e => {
+            // middle mouse down
+            if (e.button === 1) {
+                let coords = getCoords(image, e);
+                console.log(`Coords: x: ${coords.x}, y: ${coords.y}`);
+                e.preventDefault();
+            }
+        });
+    }
+    if (mode === 2) {
+        let allCoords = [];
 
-            let coords = {
-                x: e.clientX - rect.left,
-                y: e.clientY - rect.top,
-            };
-            console.log(`Coords: x: ${coords.x}, y: ${coords.y}`);
-            e.preventDefault();
-        }
-    })
+        image.addEventListener("mousedown", e => {
+            // middle mouse down
+            if (e.button === 1) {
+                let coords = getCoords(image, e);
+                allCoords.push(coords);
+                // print all coords 
+                let string = allCoords.map(coord => coord.x + "," + coord.y)
+                    .reduce((acc, currentValue) => acc + (acc != "" ? "," : "") + currentValue, "");
+                console.log(string);
+                e.preventDefault();
+            }
+        });
+    }
     
+
+    function getCoords(image, mouseEvent) {
+        let rect = image.getBoundingClientRect();
+
+        let coords = {
+            x: mouseEvent.clientX - rect.left,
+            y: mouseEvent.clientY - rect.top,
+        };
+
+        return coords;
+    }
 }

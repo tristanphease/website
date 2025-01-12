@@ -1,7 +1,8 @@
 +++
 title = "About Site"
 +++
-This site is built using [Zola](https://www.getzola.org/), a neato static site generator, although it seems primarily geared towards building blogs which isn't really what I want this site to be.
+This site is built using [Zola](https://www.getzola.org/), a neato static site generator, although it seems primarily geared towards building blogs which isn't really what I want this site to be.\
+The images are rendered using [blender](https://www.blender.org/).\
 You can find the source code for this site on my github [here](Link).
 ***
 As for why it's designed like this?  
