@@ -1,3 +1,12 @@
 [submodule "website/static/projects/3d-dots-and-boxes"]
 	path = website/static/projects/3d-dots-and-boxes
 	url = https://github.com/tristanphease/3D-Dots-and-Boxes
+[submodule "website/static/projects/404-game"]
+	path = website/static/projects/404-game
+	url = https://github.com/tristanphease/404-Game
+[submodule "website/static/projects/oscillator-test"]
+	path = website/static/projects/oscillator-test
+	url = https://github.com/tristanphease/Oscillator-Test
+[submodule "website/static/projects/s7"]
+	path = website/static/projects/s7
+	url = https://github.com/tristanphease/S7
