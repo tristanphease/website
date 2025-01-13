@@ -1,0 +1,3 @@
+[submodule "website/static/projects/3d-dots-and-boxes"]
+	path = website/static/projects/3d-dots-and-boxes
+	url = https://github.com/tristanphease/3D-Dots-and-Boxes

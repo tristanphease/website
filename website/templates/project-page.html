@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link href="/project-page.css" rel="stylesheet" /> 
+{% endblock head %}
+
+{% block content %}
+
+<div id="content-wrapper">
+    <div id="content-div">
+        {{ page.content | safe }}
+    </div>
+    <div id="project-wrapper">
+        <iframe id="project-link" src="/projects/{{ page.extra.local_url }}/index.html">   
+        </iframe>
+        <button id="maximise-button" class="size-button"><img src="/icons/maximise.svg" /></button>
+        <button id="minimise-button" class="size-button hide-minimise-button"><img src="/icons/minimise.svg" /></button>
+    </div>
+</div>
+
+<script>
+
+function setSizeButtons() {
+    let maximiseButton = document.getElementById("maximise-button");
+    maximiseButton.addEventListener("click", maximiseProjectFrame);
+
+    let minimiseButton = document.getElementById("minimise-button");
+    minimiseButton.addEventListener("click", minimiseProjectFrame);
+}
+
+function maximiseProjectFrame() {
+    let projectFrame = document.getElementById("project-link");
+    projectFrame.classList.add("maximised-project-frame");
+
+    let minimiseButton = document.getElementById("minimise-button");
+    minimiseButton.classList.remove("hide-minimise-button");
+}
+
+function minimiseProjectFrame() {
+    let projectFrame = document.getElementById("project-link");
+    projectFrame.classList.remove("maximised-project-frame");
+
+    let minimiseButton = document.getElementById("minimise-button");
+    minimiseButton.classList.add("hide-minimise-button");
+}
+
+window.addEventListener("load", setSizeButtons);
+
+</script>
+
+{% endblock content %}
