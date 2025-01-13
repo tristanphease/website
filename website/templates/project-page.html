@@ -6,15 +6,25 @@
 
 {% block content %}
 
-<div id="content-wrapper">
-    <div id="content-div">
-        {{ page.content | safe }}
+<div id="all-wrapper">
+    <div id="top-wrapper">
+        <a id="back-button" href="{{ get_url(path='@/projects/_index.md') }}">
+            <span id="back-button-text">Back</span>
+        </a>
+    
+        <h1 id="page-title">{{ page.title }}</h1>
     </div>
-    <div id="project-wrapper">
-        <iframe id="project-link" src="/projects/{{ page.extra.local_url }}/index.html">   
-        </iframe>
-        <button id="maximise-button" class="size-button"><img src="/icons/maximise.svg" /></button>
-        <button id="minimise-button" class="size-button hide-minimise-button"><img src="/icons/minimise.svg" /></button>
+    
+    <div id="content-wrapper">
+        <div id="content-div">
+            {{ page.content | safe }}
+        </div>
+        <div id="project-wrapper">
+            <iframe id="project-link" src="/projects/{{ page.extra.local_url }}/index.html">   
+            </iframe>
+            <button id="maximise-button" class="size-button"><img src="/icons/maximise.svg" /></button>
+            <button id="minimise-button" class="size-button hide-minimise-button"><img src="/icons/minimise.svg" /></button>
+        </div>
     </div>
 </div>
 
