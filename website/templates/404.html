@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% import "back_button.html" as back_button %}
+
+{% block head %}
+    <link href="/404.css" rel="stylesheet" />
+{% endblock head %}
+
+{% block content %}
+
+
+<div id="main-content">
+
+    <div id="top-header">
+        
+        {{ back_button::create(url="/") }}
+
+        <input id="number-input" type="text" value="404"/>
+        
+    </div>
+
+    <div id="number-info-wrapper">
+        <table id="number-info-table">
+            <tbody>
+                <tr>
+                    <td>Binary</td>
+                    <td id="binary-value">110010100</td>
+                </tr>
+                <tr>
+                    <td>Hex</td>
+                    <td id="hex-value">194</td>
+                </tr>
+                <tr>
+                    <td>Prime Factorisation</td>
+                    <td id="prime-factors">2&times;2&times;101</td>
+                </tr>
+                <tr>
+                    <td>Sum of powers of 2</td>
+                    <td id="powers-two">2<sup>2</sup>&plus;2<sup>4</sup>&plus;2<sup>7</sup>&plus;2<sup>8</sup></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+//calculate number in binary, hex, prime factorisation, maybe some others
+
+function setup() {
+    let numberInput = document.getElementById("number-input");
+    numberInput.addEventListener("input", onNumberChange);
+}
+
+function onNumberChange() {
+    let numberInput = document.getElementById("number-input");
+    let value = parseInt(numberInput.value);
+    if (isNaN(value)) {
+        const blankValue = "---";
+        setValue("hex-value", blankValue);
+        setValue("binary-value", blankValue);
+        setValue("prime-factors", blankValue);
+        setValue("powers-two", blankValue);
+    } else {
+        let hexValue = value.toString(16);
+        setValue("hex-value", hexValue);
+        let binaryValue = value.toString(2);
+        setValue("binary-value", binaryValue);
+        let primeFactors = getPrimeFactorisation(value);
+        let primeFactorString = primeFactors
+            .sort(sortNumberAscending)
+            .reduce((previous, current, index) => previous + (index === 0 ? "" : "&times;") + current, "");
+        setValue("prime-factors", primeFactorString);
+
+        let powersOfTwo = getPowersOfTwo(value);
+        let powersOfTwoString = powersOfTwo.reduce((previous, current, index) => previous + (index === 0 ? "" : "&plus;") + "2<sup>" + current + "</sup>", "");
+        setValue("powers-two", powersOfTwoString);
+    }
+
+    function setValue(id, newValue) {
+        let element = document.getElementById(id);
+        element.innerHTML = newValue;
+    }
+
+    // it's crazy this isn't the default behaviour of array.sort
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    function sortNumberAscending(num1, num2) {
+        return num1 - num2;
+    }
+}
+
+/**
+ * Get the powers of two that sum to make a number
+ * Using bitwise operations to retrieve them because they're neat
+ */
+function getPowersOfTwo(number) {
+    let powers = [];
+    let currentNumber = number;
+    let value = 1;
+    while (currentNumber > 0) {
+        if ((currentNumber & value) > 0) {
+            let power = Math.log2(value);
+            powers.push(power);
+            // xor number with value
+            currentNumber = currentNumber ^ value;
+        }
+        // left shift by 1 (multiply by 2)
+        value = value << 1;
+    }
+
+    return powers;
+}
+
+function getPrimeFactorisation(number) {
+    let primeFactors = [];
+
+    let factorsToCheck = [number];
+    
+    while (factorsToCheck.length > 0) {
+        let currentNumber = factorsToCheck.pop();
+        // can only be up to the square root of the number
+        let maxValue = Math.floor(Math.sqrt(currentNumber));
+
+        let foundFactor = false;
+        // go through all factors of the number
+        for (let i=2; i<=maxValue; i++) {
+            if (currentNumber % i == 0) {
+                // add these factors
+                factorsToCheck.push(i);
+                factorsToCheck.push(currentNumber / i);
+                foundFactor = true;
+                break;
+            }
+        }
+
+        // if no factors, then must be a prime number!
+        if (!foundFactor) {
+            primeFactors.push(currentNumber);
+        }
+    }
+
+    return primeFactors;
+}
+
+window.addEventListener("load", setup);
+
+</script>
+
+
+
+{% endblock content %}
