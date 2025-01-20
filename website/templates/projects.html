@@ -38,3 +38,33 @@
 </a>
 
 {% endblock content %}
+
+{% block smallcontent %}
+
+
+<div id="small-projects-wrapper">
+    {% for project in paginator.pages %}
+    <a href="{{ project.permalink }}">
+        <span>{{ project.title }}</span>
+    </a>
+    {% endfor %}
+
+    <nav>
+        {% if paginator.previous %}
+        <a href="{{ paginator.previous }}">
+            <span>Previous</span>
+        </a>
+        {% endif %}
+        {% if paginator.next %}
+        <a href="{{ paginator.next }}">
+            <span>Next</span>
+        </a>
+        {% endif %}
+    </nav>
+</div>
+
+<div id="small-back-wrapper">
+    <a id="small-back-button" href="/">Main page</a>
+</div>
+
+{% endblock smallcontent %}
