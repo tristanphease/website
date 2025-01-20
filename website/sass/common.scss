@@ -16,6 +16,9 @@ body {
     height: 100%;
 }
 
+.small-screen-content {
+    display: none;
+}
 
 /* Solution for centreing the image from https://stackoverflow.com/a/3302072 */
 div.outer-image {
@@ -31,4 +34,46 @@ div.inner-image {
 div.inner-image img {
     position: relative; 
     right:-50%;
+}
+
+/* small screen content */
+@media (width < 1000px) {
+
+    .small-screen-content {
+        display: block;
+    }
+
+    .large-screen-content {
+        display: none;
+    }
+
+    #small-header {
+        border-top-width: 0px;
+        border-bottom-width: 20px;
+        border-right-width: 0px;
+        border-left-width: 0px;
+        border-style: solid;
+        border-image: linear-gradient(to right, rgb(255, 255, 255), rgb(146, 146, 146)) 1;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    #small-header > a {
+        font-size: 40px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding: 20px;
+        font-weight: bold;
+    }
+
+    body {
+        background: linear-gradient(200deg, rgb(0, 0, 0), rgb(41, 41, 41) 100%),
+                linear-gradient(100deg, rgb(0, 0, 0), rgb(90, 90, 90) 100%),
+                linear-gradient(300deg, rgb(0, 0, 0), rgb(61, 61, 61) 100%);
+        background-attachment: fixed;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
 }

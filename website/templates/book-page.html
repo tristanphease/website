@@ -124,3 +124,15 @@ window.addEventListener("load", () => {
 </script>
 
 {% endblock content %}
+
+{% block smallcontent %} 
+
+<div id="small-page-content">
+    {{ page.content | safe }}
+</div>
+
+<div id="small-back-wrapper">
+    <a id="small-back-button" href="/">Back</a>
+</div>
+
+{% endblock smallcontent %}

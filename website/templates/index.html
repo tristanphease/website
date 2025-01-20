@@ -19,3 +19,16 @@
 <script src="/area_highlight.js"></script>
 
 {% endblock content %}
+
+{% block smallcontent %}
+
+<div id="page-links" class="small-links-sections">
+    <a href="{{ get_url(path='@/pages/about-site.md') }}">About site</a>
+    <a href="{{ get_url(path='@/pages/about-me.md') }}">About me</a>
+</div>
+
+<div id="misc-links" class="small-links-sections">
+    <a href="{{ get_url(path='@/projects/_index.md') }}">Projects</a>
+</div>
+
+{% endblock smallcontent %}

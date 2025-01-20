@@ -10,7 +10,17 @@
 </head>
 
 <body>
-    {% block content %} {% endblock %}
+    <div class="large-screen-content">
+        {% block content %} {% endblock %}
+    </div>
+
+    <div class="small-screen-content">
+        <div id="small-header">
+            <a href="/">Tristan's Website</a>
+        </div>
+        {% block smallcontent %} {% endblock %}
+    </div>
+    
 </body>
 <footer>
     

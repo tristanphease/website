@@ -7,3 +7,13 @@ body {
     overflow-x: hidden;
 }
 
+@media (width < 1000px) {
+    .small-links-sections {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        font-family: system-ui;
+        font-size: 30px;
+        margin: 30px;
+    }
+}

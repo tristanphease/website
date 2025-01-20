@@ -106,3 +106,12 @@ $border-size: 4;
     display: none;
 }
 
+@media (width < 1000px) {
+    .large-screen-content {
+        display: block;
+    }
+
+    #page-title {
+        color: white;
+    }
+}
