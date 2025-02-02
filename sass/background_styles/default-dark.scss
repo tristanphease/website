@@ -4,6 +4,13 @@
     initial-value: 30deg;
 }
 
+:root {
+    --background-color: black;
+    --main-color: white;
+    --box-background-color: rgba(0, 0, 0, 0.603);
+    --text-main-color: white;
+}
+
 #background {
     background-image: repeating-linear-gradient(var(--rotation-angle), rgb(58, 58, 58) 100px, rgb(0, 0, 0) 120px, rgb(58, 58, 58) 122px);
 }
@@ -27,35 +34,4 @@
     100% {
         --rotation-angle: 40deg;
     }
-}
-
-.icon-path {
-    fill: white!important;
-}
-
-.main-box {
-    border: 5px solid rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0.603);
-}
-
-#style-picker-button::before {
-    background-color: white;
-}
-
-#style-picker-wrapper {
-    background-color: black;
-    border: 1px solid white;
-}
-
-#style-picker-border {
-    background-color: white;
-}
-
-.style-select {
-    background-color: black;
-}
-
-
-* {
-    color: white;
 }
