@@ -18,9 +18,13 @@
 
     <div id="background">
         <div id="tool-div" class="main-box">
-            <div id="index-button">
+            <div class="nav-button">
                 <a href="/">
-                    <!-- <img id="back-icon" src="/icons/back.svg"/> -->
+                    {{ load_data(path="static/icons/home.svg") | safe }}
+                </a>
+            </div>
+            <div class="nav-button">
+                <a href="javascript:window.history.go(-1)">
                     {{ load_data(path="static/icons/back.svg") | safe }}
                 </a>
             </div>

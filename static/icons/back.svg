@@ -7,6 +7,7 @@
    viewBox="0 0 500 500"
    version="1.1"
    id="back-icon"
+   class="menu-icon"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
@@ -16,6 +17,7 @@
     <path
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:11.9018;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
        d="M 457.34913,226.24692 H 220.46381 C 220.46381,226.24692 169.50951,176.00819 220.46381,104.55084 L 45.097959,248.10849 226.22128,413.10082 C 167.31708,315.38813 221.80697,276.52852 221.80697,276.52852 L 458.05625,275.79979 Z"
-       id="back-icon-path" />
+       id="back-icon-path"
+       class="icon-path" />
   </g>
 </svg>

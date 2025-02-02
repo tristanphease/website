@@ -2,6 +2,8 @@
 
 {% block head_content %}
     <link href="/page.css" rel="stylesheet" />
+{% block page_head_content %}
+{% endblock page_head_content %}
 {% endblock head_content %}
 
 {% block content %}
@@ -10,5 +12,8 @@
     <section id="page-content">
         {{ page.content | safe }}
     </section>
+
+    {% block page_content %}
+    {% endblock page_content %}
 </div>
 {% endblock content %}

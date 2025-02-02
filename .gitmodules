@@ -1,0 +1,9 @@
+[submodule "static/projects-repos/3d-dots-and-boxes"]
+	path = static/projects-repos/3d-dots-and-boxes
+	url = https://github.com/tristanphease/3D-Dots-and-Boxes
+[submodule "static/projects-repos/oscillator"]
+	path = static/projects-repos/oscillator
+	url = https://github.com/tristanphease/Oscillator-Test
+[submodule "static/projects-repos/s7"]
+	path = static/projects-repos/s7
+	url = https://github.com/tristanphease/S7

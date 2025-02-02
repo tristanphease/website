@@ -2,6 +2,7 @@
 
 {% block head_content %}
     <link href="/page.css" rel="stylesheet" />
+    <link href="/projects.css" rel="stylesheet" />
 {% endblock head_content %}
 
 {% block content %}
@@ -10,5 +11,18 @@
     <section id="page-content">
         {{ section.content | safe }}
     </section>
+
+    <div id="projects-wrapper">
+        {% for project in section.pages %}
+            <div class="project-wrapper">
+                <a class="project-title" href="{{ project.permalink }}">
+                    {{ project.title }}
+                </a>
+                <div class="project-description">
+                    {{ project.description }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock content %}
