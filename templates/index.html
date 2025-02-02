@@ -5,8 +5,14 @@
 {% endblock head_content %}
 
 {% block content %}
-<div id="background-image">
 
-</div>
+    <div id="tile-wrapper">
+    {% for tile in section.pages %}
+        <div id="tile-{{loop.index}}" class="tile-main main-box">
+            <h2 class="tile-title">{{ tile.title }}</h2>
+            <span class="tile-content">{{ tile.content | safe }}</span>
+        </div>
+    {% endfor %} 
+    </div>
 {% endblock content %}
 

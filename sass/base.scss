@@ -1,0 +1,136 @@
+
+body {
+    margin: 0;
+}
+
+#background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    gap: 30px;
+}
+
+#main-content {
+    width: 80%;
+    flex: 1 1 0;
+}
+
+.main-box {
+    border-radius: 10px;
+}
+
+$tool-height: 50px;
+
+#tool-div {
+    width: 80%;
+    height: $tool-height;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+#index-button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    color: black;
+
+    width: 200px;
+}
+
+#back-icon {
+    width: 100%;
+    height: 100%;
+}
+
+#style-picker-text {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#style-picker {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#style-picker-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#style-picker-border {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#style-picker-button::before {
+    content: "";
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(46%);
+}
+
+
+#style-picker-button > img {
+    width: $tool-height;
+    height: 100%;
+    position: relative;
+    top: -100%;
+    clip-path: circle(40%);
+}
+
+#style-picker-button {
+    position: relative;
+    top: 0%;
+    height: 100%;
+    padding: 2px;
+}
+
+#style-selector {
+    visibility: hidden;
+    height: $tool-height;
+    border: 1px solid black;
+    background-color: white;
+    z-index: 1;
+}
+
+.style-select {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 0;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.style-picker-show {
+    margin-left: auto;
+}
+
+.style-picker-show, .style-picker-show > img {
+    height: 100%;
+}
+
+.style-name-text {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#style-picker-wrapper:hover~#style-selector, #style-selector:hover {
+    visibility: visible;
+}
+
+
+

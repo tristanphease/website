@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+    <link href="/page.css" rel="stylesheet" />
+{% endblock head_content %}
+
+{% block content %}
+<div class="main-box">
+    <h1 id="page-title">{{ page.title }}</h1>
+    <section id="page-content">
+        {{ page.content | safe }}
+    </section>
+</div>
+{% endblock content %}

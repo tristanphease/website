@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {% set styles = ["default-light", "default-dark"] %}
+    {% set default_style = "default-light" %}
+
+    <title>Tristan's Website</title>
+    <link href="/base.css" rel="stylesheet" />
     {% block head_content %}
     {% endblock head_content %}
+
+    <link id="theme-stylesheet" 
+        href="/background_styles/{{ default_style }}.css" 
+        rel="stylesheet" />
 </head>
 
 <body>
 
-    {% block content %}
-    {% endblock content %}
+    <div id="background">
+        <div id="tool-div" class="main-box">
+            <div id="index-button">
+                <a href="/">
+                    <!-- <img id="back-icon" src="/icons/back.svg"/> -->
+                    {{ load_data(path="static/icons/back.svg") | safe }}
+                </a>
+            </div>
+            <div id="style-picker">
+                <button id="style-picker-wrapper">
+                    <span id="style-picker-text">Style:</span>
+                    <div id="style-picker-button">
+                        <img src="/styles_icons/default-light.png"/>
+                    </div>
+                </button>
+
+                <div id="style-selector">
+                    {% for style in styles %}
+                        <button data-style="{{ style }}" class="style-select">
+                            <span class="style-name-text">{{ style }}</span>
+                            <div class="style-picker-show">
+                                <img src="/styles_icons/{{ style }}.png" />
+                            </div>
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+            
+        </div>
+        
+        <div id="main-content">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+    
+    <script src="/js/style_change.js"></script>
 
 </body>
 </html>
