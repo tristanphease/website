@@ -1,0 +1,51 @@
+@property --second-color-hue {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@property --second-color-luminance {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 71%;
+}
+
+:root {
+    --background-color: white;
+    --main-color: black;
+    --box-background-color: rgba(255, 255, 255, 0.8);
+    --text-main-color: black;
+}
+
+#background {
+    --second-color: hsl(var(--second-color-hue), 89%, var(--second-color-luminance));
+    background-image: repeating-radial-gradient(circle at 0% 0%, var(--second-color), #eee 3px, var(--second-color) 10px);
+}
+
+#background {
+    animation: 10s linear infinite change-second-luminance, 20s linear infinite change-second-hue;
+}
+
+@keyframes change-second-hue {
+    0% {
+        --second-color-hue: 0deg;
+    }
+
+    100% {
+        --second-color-hue: 360deg;
+    }
+}
+
+@keyframes change-second-luminance {
+    0% {
+        --second-color-luminance: 71%;
+    }
+
+    50% {
+        --second-color-luminance: 20%;
+    }
+
+    100% {
+        --second-color-luminance: 71%;
+    }
+}
