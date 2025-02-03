@@ -1,6 +1,6 @@
 
+// key for localstorage
 const SHEET_KEY_NAME = "theme_style";
-
 
 function addStyleButtonEvent() {
     const styleButton = document.getElementById("style-picker-wrapper");
@@ -21,6 +21,12 @@ function changeStyleSheet(sheetName) {
     const newStyleSheetName = `/background_styles/${sheetName}.css`;
     if (themeStyleSheet.href !== newStyleSheetName) {
         themeStyleSheet.href = newStyleSheetName;
+    }
+
+    const currentStyleIcon = document.getElementById("current-style-icon");
+    const newStyleIconPath = `/styles_icons/${sheetName}.png`;
+    if (currentStyleIcon.src !== newStyleIconPath) {
+        currentStyleIcon.src = newStyleIconPath;
     }
 
     window.localStorage.setItem(SHEET_KEY_NAME, sheetName);
