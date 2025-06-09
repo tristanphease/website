@@ -29,6 +29,10 @@
                     <td>Sum of powers of 2</td>
                     <td id="powers-two">2<sup>2</sup>&plus;2<sup>4</sup>&plus;2<sup>7</sup>&plus;2<sup>8</sup></td>
                 </tr>
+                <tr>
+                    <td>Roman Numerals</td>
+                    <td id="roman-numerals">CDIV</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -45,12 +49,13 @@ function setup() {
 function onNumberChange() {
     let numberInput = document.getElementById("number-input");
     let value = parseInt(numberInput.value);
+    const blankValue = "---";
     if (isNaN(value)) {
-        const blankValue = "---";
         setValue("hex-value", blankValue);
         setValue("binary-value", blankValue);
         setValue("prime-factors", blankValue);
         setValue("powers-two", blankValue);
+        setValue("roman-numerals", blankValue);
     } else {
         let hexValue = value.toString(16);
         setValue("hex-value", hexValue);
@@ -65,6 +70,9 @@ function onNumberChange() {
         let powersOfTwo = getPowersOfTwo(value);
         let powersOfTwoString = powersOfTwo.reduce((previous, current, index) => previous + (index === 0 ? "" : "&plus;") + "2<sup>" + current + "</sup>", "");
         setValue("powers-two", powersOfTwoString);
+
+        const romanNumerals = getRomanNumerals(value);
+        setValue("roman-numerals", romanNumerals ?? blankValue);
     }
 
     function setValue(id, newValue) {
@@ -130,6 +138,49 @@ function getPrimeFactorisation(number) {
     }
 
     return primeFactors;
+}
+/**
+ * Gets the roman numerals for a number
+ * Returns null if the number can't be converted to a roman numeral
+ */
+function getRomanNumerals(number) {
+
+    const romanNumerals = [
+        { value: 1000, symbol: "M" },
+        { value: 900, symbol: "CM" },
+        { value: 500, symbol: "D" },
+        { value: 400, symbol: "CD" },
+        { value: 100, symbol: "C" },
+        { value: 90, symbol: "XC" },
+        { value: 50, symbol: "L" },
+        { value: 40, symbol: "XL" },
+        { value: 10, symbol: "X" },
+        { value: 9, symbol: "IX" },
+        { value: 5, symbol: "V" },
+        { value: 4, symbol: "IV" },
+        { value: 1, symbol: "I" },
+    ];
+
+    const MAX_NUMERAL = 3999;
+
+    if (number > MAX_NUMERAL) {
+        return null;
+    }
+
+    let remainingValue = number;
+    let numerals = "";
+
+    while (remainingValue > 0) {
+        for (let romanNumeral of romanNumerals) {
+            if (romanNumeral.value <= remainingValue) {
+                remainingValue -= romanNumeral.value;
+                numerals += romanNumeral.symbol;
+                break;
+            }
+        }
+    }
+    
+    return numerals;
 }
 
 window.addEventListener("load", setup);

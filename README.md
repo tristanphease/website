@@ -1,3 +1,4 @@
 My website!
 
-v2.0
+Built using [zola!](https://www.getzola.org/)
+
