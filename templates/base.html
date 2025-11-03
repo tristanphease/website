@@ -5,12 +5,12 @@
     {% set default_style = "default-light" %}
 
     <title>Tristan's Website</title>
-    <link href="/base.css" rel="stylesheet" />
+    <link href="/style/base.css" rel="stylesheet" />
     {% block head_content %}
     {% endblock head_content %}
 
-    <link id="theme-stylesheet" 
-        href="/background_styles/{{ default_style }}.css" 
+    <link id="theme-stylesheet"
+        href="/style/background_styles/{{ default_style }}.css"
         rel="stylesheet" />
 </head>
 
@@ -47,15 +47,15 @@
                     {% endfor %}
                 </div>
             </div>
-            
+
         </div>
-        
+
         <div id="main-content">
             {% block content %}
             {% endblock content %}
         </div>
     </div>
-    
+
     <script src="/js/style_change.js"></script>
 
 </body>

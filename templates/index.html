@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block head_content %}
-<link href="/index.css" rel="stylesheet" />
+<link href="/style/index.css" rel="stylesheet" />
 {% endblock head_content %}
 
 {% block content %}
@@ -12,7 +12,6 @@
             <h2 class="tile-title">{{ tile.title }}</h2>
             <span class="tile-content">{{ tile.content | safe }}</span>
         </div>
-    {% endfor %} 
+    {% endfor %}
     </div>
 {% endblock content %}
-

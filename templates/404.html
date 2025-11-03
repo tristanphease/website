@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block head_content %}
-    <link href="/page.css" rel="stylesheet" />
-    <link href="/404.css" rel="stylesheet" />
+    <link href="/style/page.css" rel="stylesheet" />
+    <link href="/style/404.css" rel="stylesheet" />
 {% endblock head_content %}
 
 
@@ -113,7 +113,7 @@ function getPrimeFactorisation(number) {
     let primeFactors = [];
 
     let factorsToCheck = [number];
-    
+
     while (factorsToCheck.length > 0) {
         let currentNumber = factorsToCheck.pop();
         // can only be up to the square root of the number
@@ -179,12 +179,12 @@ function getRomanNumerals(number) {
             }
         }
     }
-    
+
     return numerals;
 }
 
 window.addEventListener("load", setup);
 
 </script>
-    
+
 {% endblock content %}

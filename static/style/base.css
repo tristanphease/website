@@ -1,4 +1,8 @@
 
+:root {
+    --tool-height: 50px;
+}
+
 body {
     margin: 0;
 }
@@ -28,11 +32,9 @@ body {
     background-color: var(--box-background-color);
 }
 
-$tool-height: 50px;
-
 #tool-div {
     width: 80%;
-    height: $tool-height;
+    height: var(--tool-height);
     display: flex;
     flex-direction: row;
     margin-top: 30px;
@@ -46,7 +48,7 @@ $tool-height: 50px;
     width: 100px;
 }
 
-// class names that are set in the svg files
+/* class names that are set in the svg files */
 .menu-icon {
     width: 100%;
     height: 100%;
@@ -98,7 +100,7 @@ $tool-height: 50px;
 
 
 #style-picker-button > img {
-    width: $tool-height;
+    width: var(--tool-height);
     height: 100%;
     position: relative;
     top: -100%;
@@ -114,7 +116,7 @@ $tool-height: 50px;
 
 #style-selector {
     visibility: hidden;
-    height: $tool-height;
+    height: var(--tool-height);
     border: 1px solid black;
     background-color: white;
     z-index: 1;
@@ -148,6 +150,3 @@ $tool-height: 50px;
 #style-picker-wrapper:hover~#style-selector, #style-selector:hover {
     visibility: visible;
 }
-
-
-

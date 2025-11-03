@@ -1,3 +1,7 @@
+:root {
+    --border-size: 4;
+}
+
 #project-link {
     background-color: white;
     width: 500px;
@@ -13,18 +17,16 @@
     height: 100%;
 }
 
-$border-size: 4;
-
 .size-button {
     width: 50px;
     height: 50px;
     background-color: transparent;
-    border: #{$border-size}px solid transparent;
+    border: var(--border-size)px solid transparent;
     box-sizing: border-box;
 }
 
 .size-button:hover {
-    border: #{$border-size}px solid var(--main-color);
+    border: var(--border-size)px solid var(--main-color);
 }
 
 .maximised-project-frame {
@@ -35,7 +37,7 @@ $border-size: 4;
     height: 100vh !important;
 }
 
-#minimise-button { 
+#minimise-button {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -45,4 +47,3 @@ $border-size: 4;
 .hide-minimise-button {
     display: none;
 }
-
