@@ -1,0 +1,44 @@
+/*
+** Using the cool view transitions API for fancy view transitions
+** https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using
+*/
+
+#main-content {
+    /*
+    As of 2025-11-03 this doesn't work on firefox, will soon hopefully
+    https://developer.mozilla.org/en-US/docs/Web/CSS/@view-transition#browser_compatibility
+    */
+    view-transition-name: main-transition;
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+@keyframes move-out {
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes move-in {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
+::view-transition-old(main-transition) {
+  animation: 0.4s ease-in both move-out;
+}
+
+::view-transition-new(main-transition) {
+  animation: 0.4s ease-in both move-in;
+}
